@@ -1,0 +1,17 @@
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Local dataset
+summative/data/
+
+# Environment variables
+.env
+
+# Operating system files
+.DS_Store
+Thumbs.db
