@@ -2,10 +2,6 @@
 from pathlib import Path
 from io import BytesIO
 from threading import Lock
-import os
-import secrets
-from fastapi import Header, Depends
-
 import joblib
 import pandas as pd
 
@@ -39,26 +35,6 @@ app.add_middleware(
     allow_headers=["Content-Type"]
 )
 
-# Reading the retraining API key from environment variables
-RETRAIN_API_KEY = os.getenv("RETRAIN_API_KEY")
-
-
-# Verifying authorization before allowing model retraining
-def verify_retrain_key(x_api_key: str = Header(...)):
-
-    # Rejecting retraining if the server has no configured API key
-    if not RETRAIN_API_KEY:
-        raise HTTPException(
-            status_code=503,
-            detail="Retraining is not configured."
-        )
-
-    # Comparing the provided key securely
-    if not secrets.compare_digest(x_api_key, RETRAIN_API_KEY):
-        raise HTTPException(
-            status_code=403,
-            detail="Invalid retraining API key."
-        )
 # Defining paths relative to this Python file
 API_DIRECTORY = Path(__file__).resolve().parent
 MODEL_PATH = API_DIRECTORY / "best_model.pkl"
@@ -143,8 +119,7 @@ def predict_commuting_time(commuter: CommuterInput):
 # Creating the retraining endpoint
 @app.post("/retrain")
 async def retrain_model(
-    file: UploadFile = File(...),
-    _: None = Depends(verify_retrain_key)
+    file: UploadFile = File(...)
 ):
     global model, training_data
 

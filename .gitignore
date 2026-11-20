@@ -15,4 +15,3 @@ summative/data/
 # Operating system files
 .DS_Store
 Thumbs.db
-summative/API/training_data.csv
