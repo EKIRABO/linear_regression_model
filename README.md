@@ -14,7 +14,7 @@ The dataset contains information about individuals' travel patterns, employment,
 
 **Access:** To download the original dataset, users must register or log in to the DataFirst portal, specify the purpose for which they need the data, and agree to the data usage terms.
 
-## 3. Swagger UI — Public API
+## 3. Swagger UI ( Public API)
 
 CommuteInsight SA uses a FastAPI backend deployed on Render to provide predictions and support model retraining.
 
