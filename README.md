@@ -44,7 +44,7 @@ CommuteInsight SA uses a FastAPI backend deployed on Render to provide predictio
 
 ## 4. YouTube Video Demonstration
 
-**Video link:** To be added after recording and uploading the demonstration.
+**Video link:** (https://youtu.be/LcBSTXGTd8s)
 
 ## 5. How to Run the Mobile Application
 
